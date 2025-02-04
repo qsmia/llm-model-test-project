@@ -1,0 +1,40 @@
+```html
+<body>
+    <div class="container">
+        <h1>Registration - Professional Design</h1>
+        <form id="registrationForm" onsubmit="return handleSubmit()">
+            <input type="text"
+                class="form-label name"
+                required
+                placeholder="Enter your name:"
+                value="John Doe">
+            <label for="email">
+                Enter your email:
+            </label>
+            <input type="email"
+                class="form-label email"
+                required
+                placeholder="Enter your email address:"
+                value="john@doe.com">
+            <input type="date"
+                class="form-label date"
+                required
+                placeholder="Enter your date of birth in 'DD-MM-YYYY' format:"
+                value="31-Dec-2024">
+            <select name="gender">
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option-other text="" select "Other" for males and females</option>
+            </select>
+            <input type="url"
+                class="form-label website"
+                required
+                placeholder="Enter your website URL:"
+                value="yourwebsite.com">
+            <button type="submit">Submit Information</button>
+        </form>
+    </div>
+</body>
+</html>
+```

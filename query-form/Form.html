@@ -1,0 +1,302 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f3ff;
+            color: #2196F3;
+            padding: 4px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        textarea, input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #e6f3ff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #2196F3;
+        }
+
+        textarea [input type="email"] {
+            focus: select,
+            outline: none;
+        }
+
+        button {
+            background-color: #2196F3;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1080FF;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 15px;
+            color: #2196F3;
+        }
+
+        #selectedEmail {
+            color: red;
+            margin-left: auto;
+        }
+
+        #hiddenEmail {
+            color: #E0E7EF;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form - Professional Design</h1>
+        <form id="registrationForm">
+            <!-- Full Name -->
+            <h2><strong>Full Name</strong></h2>
+            <input type="text"
+                class="form-label full-name"
+                required
+                placeholder="Last Name and First Name">
+
+            <!-- Email -->
+            <h2><strong>Email Address</strong></h2>
+            <input type="email"
+                class="form-label email"
+                required
+                placeholder="[Your Email]">
+
+            <!-- Phone No. -->
+            <h2><strong>Phone Number</strong></h2>
+            <input type="tel"
+                class="form-label phone"
+                required
+                placeholder="123-456-7890"]
+
+            <!-- Date of Birth -->
+            <h2><strong>Date of Birth</strong></h2>
+            <input type="date"
+                class="form-label dob"
+                required
+                placeholder="DD-MM-YYYY">
+
+            <!-- Gender -->
+            <h2><strong>Gender</strong></h2>
+            <select
+                class="form-label gender"
+                required
+                placeholder="Male/Female">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+
+            <!-- Website -->
+            <h2><strong>Website Address</strong></h2>
+            <input type="url"
+                class="form-label website"
+                required
+                placeholder="[Your Website URL]"
+
+            <!-- Date -->
+            <h2><strong>Date of Birth</strong></h2>
+            <input type="date"
+                class="form-label date"
+                required
+                placeholder="From Here, Local Computer">
+
+            <!-- Time -->
+            <h2><strong>Time of Birth</strong></h2>
+            <input type="time"
+                class="form-label time"
+                required
+                placeholder="[Random Time from 00:00 to 23:59]>
+
+            <button type="submit">Submit Information</button>
+
+            <!-- Selected Email -->
+            <div id="selectedEmail">
+                <p class="text-center text-primary">Email Address:</p>
+                <p>Ready to create account?</p>
+            </div>
+
+            <!-- Hidden Email -->
+            <div id="hiddenEmail">
+                <p class="text-center text-critical">Hidden Email</p>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="type" loaded="false">
+        $(document).ready(function() {
+            // Form
+            const form = $(this);
+
+            // Add click handlers to fields
+            form input, textarea, select, button, hidden email input, selected email input:
+                .form-label .click {
+                    function($e) {
+                        $e.target.value = '';
+                        $e.target.attr('data-value', '');
+                    }
+                }
+
+            // Click on "Submit Information"
+            form button {
+                .button:hover {
+                    background-color: #008CBA;
+                }
+                .hidden {
+                    opacity: 0.7;
+                    pointer-events: none;
+                }
+            }
+
+            function handleDate() {
+                const localComputer = Date.now();
+                const day = localComputerMath(localComputer, 'day');
+                const month = localComputerMath(localComputer, 'month');
+
+                var randomMonth = ['January', 'February', 'March', 'April',
+                    'May', 'June', 'July', 'August', 'September',
+                    'October', 'November', 'December'];
+                var randomDay = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+                let selectedDate;
+                if (month < 3) {
+                    month += 12;
+                    randomDay = randomDay.splice(0, 2)[0].reverse().push(...randomDay);
+                } else {
+                    randomMonth = randomMonth.splice(0, 2)[0].reverse().push(...randomDay);
+                }
+
+                selectedDate = day + ':' + randomMonth[month] + ': ' + randomDay[Math.floor(Math.random() * randomDay.length)];
+                const hiddenEmail = localComputerMath(selectedDate, 'hidden');
+
+                form input[type="date"]:click = function(e) {
+                    e.target.attr('data-value', selectedDate);
+                };
+
+                form hiddenEmail input[type="time"] = hiddenEmail;
+            }
+
+            // Date of Birth
+            function localComputerMath(day, unit) {
+                let hours, minutes, seconds;
+
+                if (unit === 'month') return [0, 0, 0];
+                if (unit === 'year') return [0, 0, 0];
+                else {
+                    hours = Math.floor((day / 24) * unit[0]);
+                    minutes = Math.floor((hour + day / 24 - hour) * unit[1]);
+                    seconds = Math.floor((minute + (day / 24 - hour)) * unit[2]);
+
+                    return [hours, minutes, seconds];
+                }
+            }
+
+            // Form data handling
+            function handleForm() {
+                const inputs = form.get';
+                if (!inputs || !form) return;
+
+                let name = inputs['full-name'].toString();
+                let email = inputs['email'].toString();
+                let phone = inputs['phone'].toString();
+                let gender = inputs['gender'].value,
+                    website = inputs['website'].toString(),
+                    dateOfBirth = inputs['dob'].toString(),
+                    timeOfBirth = inputs['time'].toString();
+
+                return {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    gender,
+                    website,
+                    dateOfBirth,
+                    timeOfBirth
+                };
+            }
+
+            // Initialize handlers
+            function initialize() {
+                const handleDate = form input[type="date"] .click;
+                const handleForm = form button .click;
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    this.initialize();
+                });
+                var formData = handleForm().get();
+
+                if (formData) {
+                    return new FormDataObject(formData, {});
+                }
+            }
+
+            // Add event listeners
+            form input[type="url"] .click(function() {
+                handleDate();
+            });
+
+            form input[type="select"] .click(function() {
+                handleDate();
+            });
+
+            form input[type="text"] .click(function() {
+                handleDate();
+            });
+
+            form select .click(function() {
+                handleDate();
+            });
+
+            form input[type="time"] .click(function() {
+                handleDate();
+            });
+
+            form button .click(function() {
+                handleDate();
+            });
+
+            // Wait for any event listeners that are changed
+            setTimeout(() => {
+                document.removeEventListener('click', handleDate);
+                form.oninput = function(e) { ... };
+                return false;
+            }, 500);
+
+        });
+    </script>
+</body>

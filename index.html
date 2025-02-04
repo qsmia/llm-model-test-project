@@ -1,0 +1,108 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'System', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            animation: fadeIn 2s ease-in forwards;
+            margin-bottom: 1rem;
+        }
+
+        .name {
+            color: white;
+            font-family: monospace;
+            animation: float 2s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .symbol {
+            font-size: 1.5rem;
+            margin-left: -2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Name is Muhammad Irfan Ali</h1>
+        <p></p>
+        <span class="name"></span>
+        <div class="content">
+            <p>Click the button to see different animations!</p>
+            <button class="btn" onclick="showDifferentName()">Show Different Name</button>
+        </div>
+    </div>
+
+    <script>
+        function showDifferentName() {
+            const name = "Muhammad Irfan Ali";
+            const animation = document.querySelector('.name');
+
+            // Change text
+            if (name !== 'Muhammad Irfan Ali') {
+                animation.textContent = name;
+                animation.style.animationDuration = `3s + 1s`;
+            } else {
+                animation.textContent = "Hello World";
+                animation.style.animationDuration = "0.5s";
+            }
+
+            // Change animation
+            if (name !== 'Muhammad Irfan Ali') {
+                document.querySelector('.btn').style.transform =
+                    `${animation.animationDuration}s forward`;
+            }
+        }
+
+        // Simple click handler for demonstration purposes
+        window.addEventListener('click', showDifferentName, { once: true });
+    </script>
+</body>
+</html>
+```
